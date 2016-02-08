@@ -25,11 +25,10 @@
         {% block header %}{% endblock %}
     </head>
     <body class="flat-blue">
-
         <div class="app-container">
             <div class="row content-container">
                 <nav class="navbar navbar-default navbar-fixed-top navbar-top">
-                    {{ partial('partials/top_navigation') }}
+                    {% include "partials/top_navigation.volt" %}
                 </nav>
                 <div class="side-menu sidebar-inverse">
                     <nav class="navbar navbar-default" role="navigation">
@@ -44,7 +43,7 @@
                                 </button>
                             </div>
                             <ul class="nav navbar-nav">
-                                {{ partial('partials/left_navigation') }}
+                                {% include "partials/left_navigation.volt" %}
                             </ul>
                         </div>
                         <!-- /.navbar-collapse -->
@@ -58,7 +57,7 @@
                 </div>
             </div>
             <footer class="app-footer">
-                {{ partial('partials/footer') }}
+                {% include "partials/footer.volt" %}
             </footer>
         </div>
 

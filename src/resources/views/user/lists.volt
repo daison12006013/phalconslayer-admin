@@ -9,6 +9,13 @@ User Lists
 
 {% block content %}
 <div class="container">
+    {# Error Messages #}
+    {% if di().get('flash').has('error')  %}
+        <div class="alert alert-danger">
+            {{ di().get('flash').get('error') }}
+        </div>
+    {% endif %}
+
     <table class="table table-bordered">
         <thead>
             <tr>

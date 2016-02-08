@@ -2,12 +2,15 @@
 namespace Daison\Admin\App\Controllers;
 
 use Clarity\Facades\Auth;
+use Clarity\Facades\View;
 use Clarity\Support\Phalcon\Mvc\Controller as BaseController;
 
 class Controller extends BaseController
 {
-    protected function getLoggedInUser()
+    public function initialize()
     {
-        return Auth::user();
+        if ( Auth::check() ) {
+            view()->setVar('user', Auth::user());
+        }
     }
 }

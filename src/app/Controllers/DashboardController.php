@@ -2,7 +2,6 @@
 namespace Daison\Admin\App\Controllers;
 
 use Clarity\Facades\Auth;
-use Clarity\Facades\View;
 
 class DashboardController extends Controller
 {
@@ -10,11 +9,10 @@ class DashboardController extends Controller
     {
         if ( Auth::check() ) {
 
-            return View::make('dashboard.index')
-                ->withLeftNavigation('dashboard')
-                ->withUser($this->getLoggedInUser());
+            return view('dashboard.index')
+                   ->withLeftNavigation('dashboard');
         }
 
-        return View::make('auth.login');
+        return view('auth.login');
     }
 }
