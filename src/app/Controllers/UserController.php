@@ -8,6 +8,7 @@ class UserController extends Controller
     public function initialize()
     {
         parent::initialize();
+
         $this->view->setVar('left_navigation', 'userLists');
     }
 

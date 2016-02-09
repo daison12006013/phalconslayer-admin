@@ -20,17 +20,17 @@
 
         <!-- CSS App -->
         <link rel="stylesheet" type="text/css" href="{{ url('vendor/daisonAdmin/css/style.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url('vendor/daisonAdmin/css/themes/flat-blue.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url('vendor/daisonAdmin/css/themes/flat-green.css') }}">
 
         {% block header %}{% endblock %}
     </head>
-    <body class="flat-blue">
+    <body class="flat-green">
         <div class="app-container">
             <div class="row content-container">
-                <nav class="navbar navbar-default navbar-fixed-top navbar-top">
+                <nav class="navbar navbar-default navbar-fixed-top navbar-top navbar-inverse">
                     {{ partial("partials/top_navigation") }}
                 </nav>
-                <div class="side-menu sidebar-inverse">
+                <div class="side-menu">
                     <nav class="navbar navbar-default" role="navigation">
                         <div class="side-menu-container">
                             <div class="navbar-header">
