@@ -4,7 +4,7 @@
             <i class="fa fa-bars icon"></i>
         </button>
         <ol class="breadcrumb navbar-breadcrumb">
-            <li class="active">{% block page_title %}{% endblock %}</li>
+            <li class="active">{% block top_nav_title %}{% endblock %}</li>
         </ol>
         <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
             <i class="fa fa-th icon"></i>

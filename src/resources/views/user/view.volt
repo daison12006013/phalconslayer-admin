@@ -13,14 +13,6 @@
 
 {% block content %}
 <div class="container">
-    <div class="form">
-        <form method="POST">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input class="form-control" id="name" name="" />
-            </div>
-        </form>
-    </div>
 </div>
 {% endblock %}
 

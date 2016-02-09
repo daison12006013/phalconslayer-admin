@@ -19,16 +19,25 @@ class UserController extends Controller
                ->withUsers($users);
     }
 
-    public function editAction($id)
+    private function _getUser($id)
     {
-        $user = User::find($id);
+        $user = User::findFirst($id);
 
-        if ( $user->count() === 0 ) {
+        if ( $user === false ) {
             return redirect(route('daison_showUsers'))
                    ->withError("User id [$id] not found.");
         }
 
-        return view('user.edit')
-               ->withTargetUser($user);
+        return $user;
+    }
+
+    public function viewAction($id)
+    {
+        return view('user.view')->withTargetUser($this->_getUser($id));
+    }
+
+    public function editAction($id)
+    {
+        return view('user.edit')->withTargetUser($this->_getUser($id));
     }
 }

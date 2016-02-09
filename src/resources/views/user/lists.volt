@@ -1,8 +1,8 @@
 {% extends 'main/base.volt' %}
 
-{% block page_title %}
-User Lists
-{% endblock %}
+{% block title %}User Profiles{% endblock %}
+
+{% block page_title %}User Profiles{% endblock %}
 
 {% block header %}
 {% endblock %}
@@ -34,7 +34,7 @@ User Lists
             <td>{{ user.getName() }}</td>
             <td>{{ user.getCreatedAt() }}</td>
             <td>
-                <a class="btn btn-xs btn-info" href="#">Edit</a>
+                <a class="btn btn-xs btn-info" href="{{ url(route('daison_editUser', ['id' : user.id])) }}">Edit</a>
             </td>
         </tr>
         {% endfor %}

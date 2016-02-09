@@ -1,8 +1,8 @@
 {% extends 'main/base.volt' %}
 
-{% block page_title %}
-Welcome!
-{% endblock %}
+{% block title %}Dashboard{% endblock %}
+
+{% block page_title %}Dashboard{% endblock %}
 
 {% block header %}
 {% endblock %}

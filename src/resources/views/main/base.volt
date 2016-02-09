@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{% block title %}{% endblock %}</title>
+        <title>{% block title %}{% endblock %} - Slayer Admin</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Fonts -->
@@ -28,7 +28,7 @@
         <div class="app-container">
             <div class="row content-container">
                 <nav class="navbar navbar-default navbar-fixed-top navbar-top">
-                    {% include "partials/top_navigation.volt" %}
+                    {{ partial("partials/top_navigation") }}
                 </nav>
                 <div class="side-menu sidebar-inverse">
                     <nav class="navbar navbar-default" role="navigation">
@@ -43,7 +43,7 @@
                                 </button>
                             </div>
                             <ul class="nav navbar-nav">
-                                {% include "partials/left_navigation.volt" %}
+                                {{ partial("partials/left_navigation") }}
                             </ul>
                         </div>
                         <!-- /.navbar-collapse -->
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <footer class="app-footer">
-                {% include "partials/footer.volt" %}
+                {{ partial("partials/footer") }}
             </footer>
         </div>
 

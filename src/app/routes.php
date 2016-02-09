@@ -41,6 +41,16 @@ Route::addGet(
 
 
 Route::addGet(
+    '/users/{id}/view',
+    [
+        'controller' => 'User',
+        'action'     => 'view',
+    ]
+)
+->setName('daison_viewUser');
+
+
+Route::addGet(
     '/users/{id}/edit',
     [
         'controller' => 'User',
