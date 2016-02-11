@@ -59,6 +59,12 @@ Help us to improve this package by submitting a PR, or submitting any issues or 
 
 ----
 
-I'm accepting any PR's or any Issues.
-
 # FYI: this project is still ongoing.
+
+If you'll be using this to enhance the code, go to `<root>/sandbox/` and run this command
+
+`git clone git@github.com:daison12006013/phalconslayer-admin.git admin`
+
+then run `composer dumpautoload` in the root, to reload the classmap on your composer.
+
+Try to use `phalconslayer/slayer`'s `dev` branch, it is more up-to-date
