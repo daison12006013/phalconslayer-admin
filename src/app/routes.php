@@ -58,3 +58,23 @@ Route::addGet(
     ]
 )
 ->setName('daison_editUser');
+
+
+Route::add(
+    '/users/{id}/delete',
+    [
+        'controller' => 'User',
+        'action'     => 'delete',
+    ]
+)
+->setName('daison_deleteUser');
+
+
+Route::add(
+    '/users/{id}/resend-confirmation',
+    [
+        'controller' => 'User',
+        'action'     => 'resendConfirmation'
+    ]
+)
+->setName('daison_resendConfirmationUser');

@@ -1232,3 +1232,11 @@ body.login-page {
   .featurette-heading {
     margin-top: 100px;
     margin-bottom: 20px; } }
+
+#nprogress .bar {
+  z-index: 100001;
+}
+
+#nprogress .spinner {
+  z-index: 100001;
+}

@@ -17,6 +17,7 @@
         <link rel="stylesheet" type="text/css" href="{{ url('vendor/daisonAdmin/bower_components/DataTables/media/css/jquery.dataTables.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url('vendor/daisonAdmin/bower_components/datatables/media/css/dataTables.bootstrap.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url('vendor/daisonAdmin/bower_components/select2/dist/css/select2.min.css') }}">
+        <link rel='stylesheet' type="text/css" href="{{ url('vendor/daisonAdmin/bower_components/nprogress/nprogress.css') }}">
 
         <!-- CSS App -->
         <link rel="stylesheet" type="text/css" href="{{ url('vendor/daisonAdmin/css/style.css') }}">
@@ -61,23 +62,22 @@
             </footer>
         </div>
 
-        <div>
-            <!-- Javascript Libs -->
-            <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/jquery/dist/jquery.min.js') }}"></script>
-            <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-            <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/Chart.js/Chart.min.js') }}"></script>
-            <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js') }}"></script>
-            <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/matchHeight/jquery.matchHeight-min.js') }}"></script>
-            <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/DataTables/media/js/jquery.dataTables.min.js') }}"></script>
-            <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/DataTables/media/js/dataTables.bootstrap.min.js') }}"></script>
-            <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
-            <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/ace-builds/src/ace.js') }}"></script>
-            <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/ace-builds/src/mode-html.js') }}"></script>
-            <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/ace-builds/src/theme-github.js') }}"></script>
-            <!-- Javascript -->
-            <script type="text/javascript" src="{{ url('vendor/daisonAdmin/js/app.js') }}"></script>
-            <script type="text/javascript" src="{{ url('vendor/daisonAdmin/js/index.js') }}"></script>
-        </div>
+        <!-- Javascript Libs -->
+        <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/jquery/dist/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/Chart.js/Chart.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/matchHeight/jquery.matchHeight-min.js') }}"></script>
+        <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/DataTables/media/js/jquery.dataTables.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/DataTables/media/js/dataTables.bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/ace-builds/src/ace.js') }}"></script>
+        <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/ace-builds/src/mode-html.js') }}"></script>
+        <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/ace-builds/src/theme-github.js') }}"></script>
+        <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/nprogress/nprogress.js') }}"></script>
+
+        <!-- Javascript Footer -->
+        <script type="text/javascript" src="{{ url('vendor/daisonAdmin/js/app.js') }}"></script>
         {% block footer %}{% endblock %}
     </body>
 </html>

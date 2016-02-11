@@ -42,7 +42,6 @@
             <script type="text/javascript" src="{{ url('vendor/daisonAdmin/bower_components/ace-builds/src/theme-github.js') }}"></script>
             <!-- Javascript -->
             <script type="text/javascript" src="{{ url('vendor/daisonAdmin/js/app.js') }}"></script>
-            <script type="text/javascript" src="{{ url('vendor/daisonAdmin/js/index.js') }}"></script>
         </div>
         {% block footer %}{% endblock %}
     </body>

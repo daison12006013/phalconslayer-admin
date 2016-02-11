@@ -61,14 +61,14 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ user.getName() }} <span class="caret"></span></a>
             <ul class="dropdown-menu animated fadeInDown">
                 <li class="profile-img">
-                    <img src="{{ url('vendor/daisonAdmin/img/profile/picjumbo.com_HNCK4153_resize.jpg') }}" class="profile-img">
+                    <img src="<?php echo url('http://www.gravatar.com/avatar/'.md5($user->getEmail())) ?>" class="profile-img">
                 </li>
                 <li>
                     <div class="profile-info">
                         <h4 class="username">{{ user.getName() }}</h4>
                         <p>{{ user.getEmail() }}</p>
                         <div class="btn-group margin-bottom-2x" role="group">
-                            <button type="button" class="btn btn-default"><i class="fa fa-user"></i> Profile</button>
+                            <a href="{{ url(route('daison_viewUser', ['id': user.id])) }}" class="btn btn-default"><i class="fa fa-user"></i> Profile</a>
                             <a href="{{ url(route('daison_postLogout')) }}" class="btn btn-default"><i class="fa fa-sign-out"></i> Logout</a>
                         </div>
                     </div>

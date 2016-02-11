@@ -10,6 +10,11 @@ class UserController extends Controller
         parent::initialize();
 
         $this->view->setVar('left_navigation', 'userLists');
+
+        $this->view->setVar(
+            'is_pjax',
+            request()->getHeader('X-PJAX') ? true : false
+        );
     }
 
     public function listsAction()
@@ -34,11 +39,29 @@ class UserController extends Controller
 
     public function viewAction($id)
     {
+        if ( request()->getHeader('X-PJAX') ) {
+            $is_pjax = true;
+        }
+
         return view('user.view')->withTargetUser($this->_getUser($id));
     }
 
     public function editAction($id)
     {
         return view('user.edit')->withTargetUser($this->_getUser($id));
+    }
+
+    public function deleteAction($id)
+    {
+        if ( request()->isPost() === false ) {
+            return view('user.delete')->withTargetUser($this->_getUser($id));
+        }
+    }
+
+    public function resendConfirmationAction($id)
+    {
+        if ( request()->isPost() === false ) {
+            return view('user.resend_confirmation')->withTargetUser($this->_getUser($id));
+        }
     }
 }

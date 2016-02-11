@@ -11,7 +11,9 @@
     "select2": "latest",
     "animate.css": "latest",
     "ace-builds": "~1.2.2",
-    "checkbox3": "~0.1.1"
+    "checkbox3": "~0.1.1",
+    "jquery-pjax": "latest",
+    "nprogress": "^0.2.0"
   },
   "private": true,
   "overrides": {
