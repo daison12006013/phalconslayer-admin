@@ -1,7 +1,11 @@
-# Unstable yet
+# Phalcon Slayer Admin
+
+This package supports the [Slayer Framework](http://github.com/phalconslayer/slayer), this also helps and test the components and features that might be encountered later on.
+
+Help us to improve this package by submitting a PR, or submitting any issues or new features that you might want to be added.
 
 
-### Update module.php
+### Update app/modules.php
 
 ```
     'daison_admin' => function (Phalcon\Di\FactoryDefault $di) {
@@ -44,5 +48,17 @@
 
 ### Publish the assets
 
-- Run using `php brood vendor:publish daison_admin --tag=assets`
-- Run `bower install` to update all dependencies
+
+1. Run using `php brood vendor:publish daison_admin --tag=assets`
+
+    - After running the publish command, go to <root>/public/vendor/daisonAdmin/
+
+2. Run `bower install` to update all dependencies
+
+    - Make sure you have a bower on your system
+
+----
+
+I'm accepting any PR's or any Issues.
+
+# FYI: this project is still ongoing.
