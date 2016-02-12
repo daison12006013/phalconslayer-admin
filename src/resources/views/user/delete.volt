@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-<div id="userFormBody">
+<div id="pjax-container">
     <div class="modal fade modal-danger in" id="modalDefault" tabindex="-1" role="dialog" aria-labelledby="userFormTitle" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

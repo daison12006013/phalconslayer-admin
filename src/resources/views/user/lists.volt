@@ -9,7 +9,7 @@
 
 {% block content %}
 
-<div id="userFormBody"></div>
+<div id="pjax-container"></div>
 
 <div>
 
@@ -47,10 +47,10 @@
                                 <td>{{ date('F j, Y g:i a', strtotime(user.getCreatedAt())) }}</td>
                                 <td>{{ user.getActivated() ? 'Yes' : 'No' }}</td>
                                 <td>
-                                    <a data-pjax="#userFormBody" class="btn btn-xs btn-primary" href="{{ url(route('daison_editUser', ['id' : user.id])) }}">Edit</a>
-                                    <a data-pjax="#userFormBody" class="btn btn-xs btn-info" href="{{ url(route('daison_viewUser', ['id' : user.id])) }}">View</a>
-                                    <a data-pjax="#userFormBody" class="btn btn-xs btn-danger" href="{{ url(route('daison_deleteUser', ['id': user.id])) }}">Delete</a>
-                                    <a data-pjax="#userFormBody" class="btn btn-xs btn-warning" href="{{ url(route('daison_resendConfirmationUser', ['id': user.id])) }}">Resend Confirmation Email</a>
+                                    <a data-pjax="#pjax-container" class="btn btn-xs btn-primary" href="{{ url(route('daison_editUser', ['id' : user.id])) }}">Edit</a>
+                                    <a data-pjax="#pjax-container" class="btn btn-xs btn-info" href="{{ url(route('daison_viewUser', ['id' : user.id])) }}">View</a>
+                                    <a data-pjax="#pjax-container" class="btn btn-xs btn-danger" href="{{ url(route('daison_deleteUser', ['id': user.id])) }}">Delete</a>
+                                    <a data-pjax="#pjax-container" class="btn btn-xs btn-warning" href="{{ url(route('daison_resendConfirmationUser', ['id': user.id])) }}">Resend Confirmation Email</a>
                                 </td>
                             </tr>
                             {% endfor %}
@@ -72,14 +72,14 @@
         if ($.support.pjax) {
             $(document).on("click", "a[data-pjax]", function(event) {
 
-                $("#userFormBody").html("");
+                $("#pjax-container").html("");
 
                 $(document).on('pjax:start', function() {
                     NProgress.start();
                 });
 
-                $.pjax.click(event, "#userFormBody", {
-                    fragment: "#userFormBody",
+                $.pjax.click(event, "#pjax-container", {
+                    fragment: "#pjax-container",
                     push: false,
                     timeout: 10000
                 });
