@@ -32,11 +32,16 @@ Welcome!
                             </div>
                         </div>
                         <form method="POST" action="{{ route('daison_postLogin') }}">
+
+                            {% if request().has('ref') %}
+                            <input type="hidden" name="ref" value="{{ request().get('ref') }}" />
+                            {% endif %}
+
                             <div class="control">
-                                <input type="email" name="email" class="form-control" placeholder="admin@gmail.com" />
+                                <input type="email" name="email" class="form-control" placeholder="email@domain.com" />
                             </div>
                             <div class="control">
-                                <input type="password" name="password" class="form-control" placeholder="123456" />
+                                <input type="password" name="password" class="form-control" placeholder="******" />
                             </div>
                             <div class="login-button text-center">
                                 <input type="submit" class="btn btn-primary" value="Login">

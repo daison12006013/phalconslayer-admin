@@ -9,6 +9,8 @@ class UserController extends Controller
     {
         parent::initialize();
 
+        $this->middleware('daison_admin_auth');
+
         $this->view->setVar('left_navigation', 'userLists');
 
         $this->view->setVar(

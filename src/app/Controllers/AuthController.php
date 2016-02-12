@@ -1,8 +1,6 @@
 <?php
 namespace Daison\Admin\App\Controllers;
 
-use Clarity\Facades\Auth;
-
 class AuthController extends Controller
 {
     /**
@@ -10,9 +8,16 @@ class AuthController extends Controller
      */
     public function loginAction()
     {
-        // TODO: check if $_POST has the 'email' and 'password'
+        $credentials = [
+            'email' => request()->get('email'),
+            'password' => request()->get('password'),
+        ];
 
-        if ( Auth::attempt($_POST) ) {
+        if ( auth()->attempt($credentials) ) {
+
+            if ( request()->has('ref') ) {
+                return redirect(request()->get('ref'));
+            }
 
             return redirect(route('daison_mainRouteManager'));
         }
@@ -28,7 +33,7 @@ class AuthController extends Controller
      */
     public function logoutAction()
     {
-        Auth::destroy();
+        auth()->destroy();
 
         return redirect(route('daison_mainRouteManager'));
     }
