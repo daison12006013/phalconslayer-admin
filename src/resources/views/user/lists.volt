@@ -69,28 +69,22 @@
 <script type="text/javascript">
     $(function() {
 
+        $(document).on('pjax:start', function() {
+            NProgress.start();
+        });
+
+        $(document).on('pjax:end', function() {
+            NProgress.done();
+            $("#modalDefault").modal("show");
+        });
+
         if ($.support.pjax) {
             $(document).on("click", "a[data-pjax]", function(event) {
-
-                $("#pjax-container").html("");
-
-                $(document).on('pjax:start', function() {
-                    NProgress.start();
-                });
-
                 $.pjax.click(event, "#pjax-container", {
                     fragment: "#pjax-container",
                     push: false,
                     timeout: 10000
                 });
-
-                event.preventDefault();
-
-                $(document).on('pjax:end', function() {
-                    NProgress.done();
-                    $("#modalDefault").modal("show");
-                });
-
             });
         }
     });
