@@ -25,23 +25,37 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
+                <!-- <div class="card-header">
+                    <div class="card-title">
+                    </div>
+                </div> -->
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-hover">
+                        <table class="checkbox-handler table table-hover">
                             <thead>
-                                <tr>
-                                    <th>#</th>
+                                <!-- <tr>
+                                    <th><input type="checkbox"></th>
                                     <th>Email</th>
                                     <th>Name</th>
                                     <th>Created At</th>
                                     <th>Activated</th>
                                     <th></th>
+                                </tr> -->
+                                <tr>
+                                    <th><input type="checkbox" class="head-checkbox checkbox-control"></th>
+                                    <th><input placeholder="Email" type="text" class="form-control input-table"></th>
+                                    <th><input placeholder="Name" type="text" class="form-control input-table"></th>
+                                    <th><input placeholder="Created At" type="text" class="form-control input-table"></th>
+                                    <th><input placeholder="Activated" type="text" class="form-control input-table"></th>
+                                    <th>
+                                        <button type="button" class="btn-block btn btn-info"><span class="fa fa-search"></span> Search</button>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                             {% for user in users %}
                             <tr>
-                                <td>{{ user.id }}</td>
+                                <td><input class="child-checkbox" type="checkbox"></td>
                                 <td>{{ user.getEmail() }}</td>
                                 <td>{{ user.getName() }}</td>
                                 <td>{{ date('F j, Y g:i a', strtotime(user.getCreatedAt())) }}</td>
@@ -78,7 +92,7 @@
             $("#modalDefault").modal("show");
         });
 
-        if ($.support.pjax) {
+        if ( $.support.pjax ) {
             $(document).on("click", "a[data-pjax]", function(event) {
                 $.pjax.click(event, "#pjax-container", {
                     fragment: "#pjax-container",
@@ -87,6 +101,17 @@
                 });
             });
         }
+
+        $(".head-checkbox").on("change", function() {
+
+            var $childBoxes = $(this).closest(".checkbox-handler").find(".child-checkbox");
+
+            if ( $(this).is(":checked") ) {
+                $childBoxes.prop("checked", true);
+            } else {
+                $childBoxes.prop("checked", false);
+            }
+        });
     });
 </script>
 {% endblock %}
