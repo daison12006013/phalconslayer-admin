@@ -1240,3 +1240,28 @@ body.login-page {
 #nprogress .spinner {
   z-index: 100001;
 }
+
+.input-table {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 5px;
+}
+
+.checkbox-control {
+  margin-bottom: 15px !important;
+}
+
+.input-table::-webkit-input-placeholder {
+  color: #000000 !important;
+}
+
+.input-table:-moz-placeholder { /* Firefox 18- */
+  color: #000000 !important;
+}
+
+.input-table::-moz-placeholder {  /* Firefox 19+ */
+  color: #000000 !important;
+}
+
+.input-table:-ms-input-placeholder {
+  color: #000000 !important;
+}
