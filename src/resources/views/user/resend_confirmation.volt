@@ -40,7 +40,7 @@
                         {% if is_pjax === true %}
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success"><span class="fa fa-paper-plane"></span>&nbsp;Send</button>
+                                <button type="button" class="btn btn-warning"><span class="fa fa-paper-plane"></span>&nbsp;Resend</button>
                             </div>
                         {% endif %}
 
