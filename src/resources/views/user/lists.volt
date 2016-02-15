@@ -25,10 +25,12 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
-                <!-- <div class="card-header">
+                <div class="card-header">
                     <div class="card-title">
+                        <button id="globalDownload" type="button" class="btn btn-primary"><span class="fa fa-download"></span></button>
+                        <button id="globalDelete" type="button" class="hidden btn btn-default"><span class="fa fa-trash"></span></button>
                     </div>
-                </div> -->
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="checkbox-handler table table-hover">
@@ -107,8 +109,12 @@
             var $childBoxes = $(this).closest(".checkbox-handler").find(".child-checkbox");
 
             if ( $(this).is(":checked") ) {
+                $("#globalDelete").removeClass("hidden");
+
                 $childBoxes.prop("checked", true);
             } else {
+                $("#globalDelete").addClass("hidden");
+
                 $childBoxes.prop("checked", false);
             }
         });
