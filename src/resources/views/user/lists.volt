@@ -128,7 +128,7 @@
             }
         }
 
-        $(".head-checkbox").on("change", function() {
+        $(document).on("change", ".head-checkbox", function() {
 
             var childBoxes = $(this).closest(".checkbox-handler").find(".child-checkbox");
 
@@ -144,7 +144,7 @@
             }
         });
 
-        $(".child-checkbox").on("change", function()
+        $(document).on("change", ".child-checkbox", function()
         {
             if ( $(".child-checkbox:checked").length )
             {
