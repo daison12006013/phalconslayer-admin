@@ -33,7 +33,7 @@
                             <button title="Delete selected lists" id="globalDelete" type="button" class="hidden btn btn-danger"><span class="fa fa-trash"></span></button>
                         </div>
                         <div class="card-title" style="float:right;">
-                            <ul class="pagination">
+                            <!-- <ul class="pagination">
                                 <li>
                                     <a href="#" aria-label="Previous">
                                         <span aria-hidden="true">«</span>
@@ -49,7 +49,8 @@
                                         <span aria-hidden="true">»</span>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> -->
+                            {{ paginator.render() }}
                         </div>
                     </div>
                     <div class="card-body">
@@ -73,7 +74,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                {% for user in users %}
+                                {% for user in paginator.items() %}
                                 <tr>
                                     <td>
                                         <div class="checkbox3 checkbox-inline checkbox-check checkbox-light">

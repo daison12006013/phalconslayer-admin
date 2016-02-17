@@ -2,6 +2,8 @@
 namespace Daison\Admin\App\Controllers;
 
 use Components\Model\User;
+// use Phalcon\Paginator\Adapter\Model as PaginatorModel;
+use Daison\Admin\Components\Util\Paginator\Paginator;
 
 class UserController extends Controller
 {
@@ -23,8 +25,12 @@ class UserController extends Controller
     {
         $users = User::find();
 
+        $paginator = Paginator::make($users, [
+            'limit' => 5
+        ]);
+
         return view('user.lists')
-               ->withUsers($users);
+               ->withPaginator($paginator);
     }
 
     private function _getUser($id)
