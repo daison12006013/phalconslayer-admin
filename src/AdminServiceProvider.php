@@ -25,7 +25,7 @@ class AdminServiceProvider extends ServiceProvider
     {
         $this->publish([
             __DIR__.'/resources/views' => base_path('resources/views/vendor/daisonAdmin'),
-        ], 'views');
+        ], 'view');
 
         $this->publish([
             __DIR__.'/resources/lang' => base_path('resources/lang/vendor/daisonAdmin'),
@@ -33,7 +33,11 @@ class AdminServiceProvider extends ServiceProvider
 
         $this->publish([
             __DIR__.'/assets' => base_path('public/vendor/daisonAdmin'),
-        ], 'assets');
+        ], 'asset');
+
+        $this->publish([
+            __DIR__.'/database/migrations' => base_path('database/migrations'),
+        ], 'migration');
     }
 
     /**
