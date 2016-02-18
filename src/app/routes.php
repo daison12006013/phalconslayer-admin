@@ -30,51 +30,84 @@ Route::addGet(
 ->setName('daison_postLogout');
 
 
-Route::addGet(
-    '/users',
+// Route::addGet(
+//     '/users',
+//     [
+//         'controller' => 'User',
+//         'action'     => 'lists',
+//     ]
+// )
+// ->setName('daison_showUsers');
+
+
+// Route::addGet(
+//     '/users/{id}/view',
+//     [
+//         'controller' => 'User',
+//         'action'     => 'view',
+//     ]
+// )
+// ->setName('daison_viewUser');
+
+
+// Route::addGet(
+//     '/users/{id}/edit',
+//     [
+//         'controller' => 'User',
+//         'action'     => 'edit',
+//     ]
+// )
+// ->setName('daison_editUser');
+
+
+// Route::add(
+//     '/users/{id}/delete',
+//     [
+//         'controller' => 'User',
+//         'action'     => 'delete',
+//     ]
+// )
+// ->setName('daison_deleteUser');
+
+
+// Route::add(
+//     '/users/{id}/resend-confirmation',
+//     [
+//         'controller' => 'User',
+//         'action'     => 'resendConfirmation'
+//     ]
+// )
+// ->setName('daison_resendConfirmationUser');
+
+
+Route::add(
+    '/{resource}',
     [
-        'controller' => 'User',
-        'action'     => 'lists',
+        'controller' => 'Dynamic',
+        'action'     => 'index',
     ]
-)
-->setName('daison_showUsers');
+);
 
-
-Route::addGet(
-    '/users/{id}/view',
+Route::add(
+    '/{resource}/{id}/view',
     [
-        'controller' => 'User',
+        'controller' => 'Dynamic',
         'action'     => 'view',
     ]
-)
-->setName('daison_viewUser');
+);
 
-
-Route::addGet(
-    '/users/{id}/edit',
+Route::add(
+    '/{resource}/{id}/edit',
     [
-        'controller' => 'User',
+        'controller' => 'Dynamic',
         'action'     => 'edit',
     ]
-)
-->setName('daison_editUser');
-
+);
 
 Route::add(
-    '/users/{id}/delete',
+    '/{resource}/{id}/delete',
     [
-        'controller' => 'User',
+        'controller' => 'Dynamic',
         'action'     => 'delete',
     ]
-)
-->setName('daison_deleteUser');
-
-
-Route::add(
-    '/users/{id}/resend-confirmation',
-    [
-        'controller' => 'User',
-        'action'     => 'resendConfirmation'
-    ]
-)
-->setName('daison_resendConfirmationUser');
+);

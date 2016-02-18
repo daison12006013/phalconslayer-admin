@@ -3,6 +3,20 @@ namespace Daison\Admin\Components\Util\HTML;
 
 class Table
 {
+    private $options;
+    private $messages;
+
+    public function __construct($options, $messages)
+    {
+        $this->options = $options;
+        $this->messages = $messages;
+    }
+
+    public function getInstance()
+    {
+        return $this;
+    }
+
     public function getContent()
     {
         return <<<EOT
