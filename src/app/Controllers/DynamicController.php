@@ -72,16 +72,16 @@ class DynamicController extends Controller
 
     public function viewAction($resource, $id)
     {
-
+        $ret = $this->callResource($resource);
     }
 
     public function editAction($resource, $id)
     {
-
+        $ret = $this->callResource($resource);
     }
 
     public function deleteAction($resource, $id)
     {
-
+        $ret = $this->callResource($resource);
     }
 }
