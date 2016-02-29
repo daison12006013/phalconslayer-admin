@@ -21,7 +21,7 @@ class UserController extends Controller
         );
     }
 
-    public function listsAction()
+    public function lists()
     {
         $users = User::find();
 
@@ -45,7 +45,7 @@ class UserController extends Controller
         return $user;
     }
 
-    public function viewAction($id)
+    public function view($id)
     {
         if ( request()->getHeader('X-PJAX') ) {
             $is_pjax = true;
@@ -54,19 +54,19 @@ class UserController extends Controller
         return view('user.view')->withTargetUser($this->_getUser($id));
     }
 
-    public function editAction($id)
+    public function edit($id)
     {
         return view('user.edit')->withTargetUser($this->_getUser($id));
     }
 
-    public function deleteAction($id)
+    public function delete($id)
     {
         if ( request()->isPost() === false ) {
             return view('user.delete')->withTargetUser($this->_getUser($id));
         }
     }
 
-    public function resendConfirmationAction($id)
+    public function resendConfirmation($id)
     {
         if ( request()->isPost() === false ) {
             return view('user.resend_confirmation')->withTargetUser($this->_getUser($id));

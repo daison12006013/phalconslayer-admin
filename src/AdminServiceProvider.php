@@ -38,6 +38,10 @@ class AdminServiceProvider extends ServiceProvider
         $this->publish([
             __DIR__.'/database/migrations' => base_path('database/migrations'),
         ], 'migration');
+
+        $this->publish([
+            __DIR__.'/dist' => base_path(),
+        ], 'dist');
     }
 
     /**

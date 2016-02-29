@@ -6,7 +6,7 @@ class AuthController extends Controller
     /**
      * Attempt a POST login
      */
-    public function loginAction()
+    public function login()
     {
         $credentials = [
             'email' => request()->get('email'),
@@ -31,7 +31,7 @@ class AuthController extends Controller
     /**
      * Attempt a POST logout
      */
-    public function logoutAction()
+    public function logout()
     {
         auth()->destroy();
 
