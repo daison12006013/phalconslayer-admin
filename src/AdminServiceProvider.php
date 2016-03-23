@@ -3,6 +3,7 @@ namespace Daison\Admin;
 
 use Phalcon\Di\FactoryDefault;
 use Clarity\Providers\ServiceProvider;
+use Daison\Admin\Components\Middleware\Auth;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -84,9 +85,51 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        # require our own routes.
         require __DIR__ . '/app/routes.php';
 
-        di()->get('module')->setModule($this->alias, $this->getClosure());
+
+        # if there is no 'daison_admin' in the base_uri
+        # then by default, let's use `slayeradmin.app`
+        if (!isset(config('app.base_uri')['daison_admin'])) {
+            config([
+                'app' => [
+                    'base_uri' => [
+                        'daison_admin' => 'slayeradmin.app',
+                    ],
+                ],
+            ]);
+        }
+
+
+        # if there is no 'daison_admin' in the ssl
+        # then by default, let's not add ssl
+        if (!isset(config('app.ssl')['daison_admin'])) {
+            config([
+                'app' => [
+                    'ssl' => [
+                        'daison_admin' => false,
+                    ],
+                ],
+            ]);
+        }
+
+
+        # let's add the middleware in the global config
+        config([
+            'app' => [
+                'middlewares' => [
+                    'daison_admin_auth' => Auth::class,
+                ],
+            ],
+        ]);
+
+
+        di('module')
+            ->setModule(
+                $this->alias,
+                $this->getClosure()
+            );
 
         return $this;
     }
