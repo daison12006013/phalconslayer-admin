@@ -33,23 +33,7 @@
                             <button title="Delete selected lists" id="globalDelete" type="button" class="hidden btn btn-danger"><span class="fa fa-trash"></span></button>
                         </div>
                         <div class="card-title" style="float:right;">
-                            <ul class="pagination">
-                                <li>
-                                    <a href="#" aria-label="Previous">
-                                        <span aria-hidden="true">«</span>
-                                    </a>
-                                </li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                    <a href="#" aria-label="Next">
-                                        <span aria-hidden="true">»</span>
-                                    </a>
-                                </li>
-                            </ul>
+                            {{ paginator.render() }}
                         </div>
                     </div>
                     <div class="card-body">
@@ -73,28 +57,34 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                {% for user in users %}
+                                {% for item in paginator.items() %}
                                 <tr>
                                     <td>
                                         <div class="checkbox3 checkbox-inline checkbox-check checkbox-light">
-                                            <input type="checkbox" id="checkbox-user-{{ user.id }}" class="child-checkbox">
-                                            <label for="checkbox-user-{{ user.id }}"></label>
+                                            <input name="delete[{{ item.id }}]" type="checkbox" id="checkbox-item-{{ item.id }}" class="child-checkbox">
+                                            <label for="checkbox-item-{{ item.id }}"></label>
                                         </div>
                                     </td>
-                                    <td>{{ user.getEmail() }}</td>
-                                    <td>{{ user.getName() }}</td>
-                                    <td>{{ date('F j, Y g:i a', strtotime(user.getCreatedAt())) }}</td>
-                                    <td>{{ user.getActivated() ? 'Yes' : 'No' }}</td>
+                                    <td>{{ item.getEmail() }}</td>
+                                    <td>{{ item.getName() }}</td>
+                                    <td>{{ date('F j, Y g:i a', strtotime(item.getCreatedAt())) }}</td>
+                                    <td>{{ item.getActivated() ? 'Yes' : 'No' }}</td>
                                     <td class="text-right">
-                                        <a title="Edit" data-pjax="#pjax-container" class="btn btn-xs btn-primary" href="{{ url(route('daison_editUser', ['id' : user.id])) }}"><span class="fa fa-pencil"></span></a>
-                                        <a title="View" data-pjax="#pjax-container" class="btn btn-xs btn-info" href="{{ url(route('daison_viewUser', ['id' : user.id])) }}"><span class="fa fa-eye"></span></a>
-                                        <a title="Delete" data-pjax="#pjax-container" class="btn btn-xs btn-danger" href="{{ url(route('daison_deleteUser', ['id': user.id])) }}"><span class="fa fa-trash"></span></a>
-                                        <a title="Resend Confirmation Email" data-pjax="#pjax-container" class="btn btn-xs btn-warning" href="{{ url(route('daison_resendConfirmationUser', ['id': user.id])) }}"><span class="fa fa-paper-plane"></span></a>
+                                        <a title="Edit" data-pjax="#pjax-container" class="btn btn-xs btn-primary" href="{{ url(route('daison_editUser', ['id' : item.id])) }}"><span class="fa fa-pencil"></span></a>
+                                        <a title="View" data-pjax="#pjax-container" class="btn btn-xs btn-info" href="{{ url(route('daison_viewUser', ['id' : item.id])) }}"><span class="fa fa-eye"></span></a>
+                                        <a title="Delete" data-pjax="#pjax-container" class="btn btn-xs btn-danger" href="{{ url(route('daison_deleteUser', ['id': item.id])) }}"><span class="fa fa-trash"></span></a>
+                                        <a title="Resend Confirmation Email" data-pjax="#pjax-container" class="btn btn-xs btn-warning" href="{{ url(route('daison_resendConfirmationUser', ['id': item.id])) }}"><span class="fa fa-paper-plane"></span></a>
                                     </td>
                                 </tr>
                                 {% endfor %}
                                 </tbody>
                             </table>
+                            <div class="alert alert-success">
+                                <div class="pull-right">
+                                    <strong>Total Number of Records:</strong> {{ paginator.total_items() }}
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
                         </div>
                     </div>
                 </form>

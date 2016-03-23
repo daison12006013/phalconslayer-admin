@@ -1,17 +1,14 @@
 server {
     listen 80;
-    listen 443 ssl;
     server_name slayeradmin.app;
     root "/var/www/phalconslayer/slayer/public";
 
-    index admin.php;
+    index admin.html admin.htm admin.php;
 
     charset utf-8;
 
-    try_files $uri $uri/ @rewrite;
-
-    location @rewrite {
-        rewrite ^(.*)$ /admin.php?_url=$1;
+    location / {
+        try_files $uri $uri/ /admin.php?$query_string;
     }
 
     location = /favicon.ico { access_log off; log_not_found off; }
@@ -27,7 +24,7 @@ server {
     location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_pass unix:/var/run/php5-fpm.sock;
-        fastcgi_index index.php;
+        fastcgi_index admin.php;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_intercept_errors off;
@@ -38,7 +35,4 @@ server {
     location ~ /\.ht {
         deny all;
     }
-
-    #ssl_certificate     /etc/nginx/ssl/slayer.app.crt;
-    #ssl_certificate_key /etc/nginx/ssl/slayer.app.key;
 }

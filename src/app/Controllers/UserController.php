@@ -2,6 +2,8 @@
 namespace Daison\Admin\App\Controllers;
 
 use Components\Model\User;
+// use Phalcon\Paginator\Adapter\Model as PaginatorModel;
+use Daison\Admin\Components\Util\Paginator\Paginator;
 
 class UserController extends Controller
 {
@@ -19,12 +21,16 @@ class UserController extends Controller
         );
     }
 
-    public function listsAction()
+    public function lists()
     {
         $users = User::find();
 
+        $paginator = Paginator::make($users, [
+            'limit' => 5
+        ]);
+
         return view('user.lists')
-               ->withUsers($users);
+               ->withPaginator($paginator);
     }
 
     private function _getUser($id)
@@ -39,7 +45,7 @@ class UserController extends Controller
         return $user;
     }
 
-    public function viewAction($id)
+    public function view($id)
     {
         if ( request()->getHeader('X-PJAX') ) {
             $is_pjax = true;
@@ -48,19 +54,19 @@ class UserController extends Controller
         return view('user.view')->withTargetUser($this->_getUser($id));
     }
 
-    public function editAction($id)
+    public function edit($id)
     {
         return view('user.edit')->withTargetUser($this->_getUser($id));
     }
 
-    public function deleteAction($id)
+    public function delete($id)
     {
         if ( request()->isPost() === false ) {
             return view('user.delete')->withTargetUser($this->_getUser($id));
         }
     }
 
-    public function resendConfirmationAction($id)
+    public function resendConfirmation($id)
     {
         if ( request()->isPost() === false ) {
             return view('user.resend_confirmation')->withTargetUser($this->_getUser($id));
