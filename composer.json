@@ -1,0 +1,14 @@
+{
+    "name": "daison/admin",
+    "authors": [
+        {
+            "name": "Daison Carino",
+            "email": "daison12006013@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Daison\\Admin\\": "src/"
+        }
+    }
+}

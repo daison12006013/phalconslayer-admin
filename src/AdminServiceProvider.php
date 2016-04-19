@@ -125,11 +125,7 @@ class AdminServiceProvider extends ServiceProvider
         ]);
 
 
-        di('module')
-            ->setModule(
-                $this->alias,
-                $this->getClosure()
-            );
+        di('module')->setModule($this->alias, $this->getClosure());
 
         return $this;
     }
